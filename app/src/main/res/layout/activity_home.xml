@@ -44,7 +44,7 @@
         style="?android:textAppearanceSmall"
         android:layout_width="195dp"
         android:layout_height="33dp"
-        android:text="Activate"
+        android:text="ACTIVATE"
         android:textColor="#ff000000"
         android:background="#cf5fc1ef"
         android:layout_gravity="center_horizontal"

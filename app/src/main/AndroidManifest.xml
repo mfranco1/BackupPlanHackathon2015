@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Tracking"
+            android:label="@string/title_activity_tracking"
+            android:parentActivityName=".Home" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="dcshackathon2015.guardian.Home" />
+        </activity>
     </application>
 
 </manifest>

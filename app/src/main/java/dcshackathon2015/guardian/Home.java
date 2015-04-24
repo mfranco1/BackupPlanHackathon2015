@@ -1,5 +1,6 @@
 package dcshackathon2015.guardian;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Home extends ActionBarActivity {
@@ -28,17 +32,26 @@ public class Home extends ActionBarActivity {
         activate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] dataFields;
-                dataFields
-                sanitizeText();
+                Boolean valid = false;
+                List<String> dataFields = new ArrayList<String>();
+                dataFields.add(fullname.getText().toString());
+                dataFields.add(platenumber.getText().toString());
+                dataFields.add(temp1.getText().toString());
+                for(int i=0;i<dataFields.size();i++){
+                    valid = sanitizeText(dataFields.get(i));
+                }
+                if(valid){
+                    startActivity(new Intent(getApplicationContext(), Tracking.class));
+                    finish();
+                }
             }
         });
     }
 
     public boolean sanitizeText(String t){
         Boolean valid = true;
-        valid = t.matches("[a-zA-Z]");
-        if(t.length() > 40){
+        valid = t.matches("[a-zA-Z ]");
+        if(t.length() > 50){
             valid = false;
         }
         return valid;
